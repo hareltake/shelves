@@ -188,8 +188,7 @@ public final class BookStoreFactory {
             BooksStore store = (BooksStore) constructor.newInstance(name, label);
             stores.put(name, store);
         } catch (ClassNotFoundException e) {
-            throw new InflateException(parser.getPositionDescription() +
-                    ": Could not create the " + name + " book store with class=" + storeClass);
+            // Ignore
         } catch (NoSuchMethodException e) {
             throw new InflateException(parser.getPositionDescription() +
                     ": The book store " + storeClass + " does not have a matching constructor");
