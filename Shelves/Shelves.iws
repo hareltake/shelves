@@ -26,101 +26,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/layout" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/layout/screen_shelves.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Shelves.iws" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/org" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/org/curiouscreature/android/shelves/util/ImportUtilities.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/org/curiouscreature/android/shelves/drawable/LayerDrawable.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sample-data" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/org/curiouscreature/android/shelves/util/Preferences.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/menu/book.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/org/curiouscreature/android/shelves/scan" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libs" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/menu/shelves.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable/background_shelf.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable/spotlight.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable/unknown_cover.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/graphics/pocket-library-gradients.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/xml/preferences.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/AndroidManifest.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/graphics/book-page.psd" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/org/curiouscreature/android/shelves/drawable/SpotlightDrawable.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/org/curiouscreature/android/shelves/provider/BooksUpdater.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/graphics" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/layout/shelf_book.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Shelves.ipr" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/anim" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/anim/slide_in.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/org/curiouscreature/android/shelves/ShelvesApplication.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable/unknown_book.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable/spotlight_blue.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Shelves.iml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/values/colors.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/values" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/org/curiouscreature/android/shelves/provider/BooksManager.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/org/curiouscreature/android/shelves/util/IOUtilities.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/org/curiouscreature/android/shelves/provider/BooksProvider.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/menu" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable/web_right.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/values/themes.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/anim/popup_exit.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/layout/book_notification.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/anim/slide_in_top.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/org/curiouscreature/android/shelves/activity/BookDetailsActivity.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/org/curiouscreature/android/shelves/activity/SettingsActivity.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/org/curiouscreature/android/shelves/util/HttpManager.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/org/curiouscreature/android/shelves/drawable/CrossFadeDrawable.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/org/curiouscreature/android/shelves/drawable/FastBitmapDrawable.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/org/curiouscreature/android/shelves" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/values/strings.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/anim/slide_out.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/org/curiouscreature/android/shelves/util/UserTask.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/xml/bookstores.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/layout/grid_position.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/org/curiouscreature/android/shelves/view/ShelvesView.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable/ic_menu_add.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/anim/popup_enter.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/org/curiouscreature/android/shelves/view" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/anim/slide_out_top.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable/web_left.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/org/curiouscreature/android/shelves/activity/BooksAdapter.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/org/curiouscreature" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/org/curiouscreature/android/shelves/activity" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/shared_build.properties" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/org/curiouscreature/android/shelves/provider/GoogleBooksStore.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/org/curiouscreature/android/shelves/activity/ShelvesActivity.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/org/curiouscreature/android/shelves/scan/ScanIntent.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/values/arrays.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/values/styles.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/org/curiouscreature/android/shelves/view/BubbleTextView.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/org/curiouscreature/android/shelves/util/UIUtilities.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/org/curiouscreature/android/shelves/drawable" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/org/curiouscreature/android/shelves/util" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/layout/screen_bookdetails.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/org/curiouscreature/android/shelves/activity/BookViewHolder.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/org/curiouscreature/android/shelves/util/ImageUtilities.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/org/curiouscreature/android/shelves/provider/CompoundBooksStore.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/values/attrs.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/org/curiouscreature/android/shelves/drawable/TransitionDrawable.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable/shelf_panel.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/xml/searchable.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/org/curiouscreature/android/shelves/provider/BookStoreFactory.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/graphics/pocket-library.psd" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sample-data/library.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable/ic_menu_check.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/org/curiouscreature/android" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/org/curiouscreature/android/shelves/util/CookieStore.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/org/curiouscreature/android/shelves/provider" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/org/curiouscreature/android/shelves/provider/BooksStore.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/layout/progress_overlay.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/org/curiouscreature/android/shelves/util/TextUtilities.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Shelves.iws" afterPath="$PROJECT_DIR$/Shelves.iws" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/org/curiouscreature/android/shelves/provider/BookStoreFactory.java" afterPath="$PROJECT_DIR$/src/org/curiouscreature/android/shelves/provider/BookStoreFactory.java" />
     </list>
     <ignored path="src/org/curiouscreature/android/shelves/R.java" />
     <ignored path="src/org/curiouscreature/android/shelves/provider/AmazonBooksStore.java" />
@@ -237,10 +144,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="local_build.properties" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="local_build.properties" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/local_build.properties">
           <provider selected="true" editor-type-id="text-editor">
             <state line="11" column="0" selection-start="388" selection-end="388" vertical-scroll-proportion="0.12464589">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="BookStoreFactory.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/org/curiouscreature/android/shelves/provider/BookStoreFactory.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="179" column="0" selection-start="6399" selection-end="6399" vertical-scroll-proportion="0.66005665">
               <folding />
             </state>
           </provider>
@@ -381,6 +297,32 @@
         </PATH_ELEMENT>
         <PATH_ELEMENT>
           <option name="myItemId" value="PsiDirectory:/Volumes/Android/Projects/Shelves/src/org/curiouscreature/android/shelves" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+        </PATH_ELEMENT>
+      </PATH>
+      <PATH>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="Shelves" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="Shelves" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="PsiDirectory:/Volumes/Android/Projects/Shelves" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="PsiDirectory:/Volumes/Android/Projects/Shelves/src" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="PsiDirectory:/Volumes/Android/Projects/Shelves/src/org/curiouscreature/android/shelves" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="PsiDirectory:/Volumes/Android/Projects/Shelves/src/org/curiouscreature/android/shelves/provider" />
           <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
         </PATH_ELEMENT>
       </PATH>
@@ -575,7 +517,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="692" y="22" width="1812" height="1520" extended-state="0" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" order="2" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32959327" order="7" />
@@ -588,7 +530,7 @@
       <window_info id="Module Dependencies" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" order="3" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" order="4" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.26417235" order="1" />
-      <window_info id="Changes" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2173913" order="12" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2173913" order="12" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" order="2" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2494331" order="2" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.22720897" order="4" />
@@ -682,13 +624,6 @@
     <option name="myLastEditedConfigurable" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/org/curiouscreature/android/shelves/view/BubbleTextView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="60" column="80" selection-start="2039" selection-end="2039" vertical-scroll-proportion="0.39486203">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/res/layout/grid_position.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
@@ -790,6 +725,13 @@
     <entry file="file://$PROJECT_DIR$/local_build.properties">
       <provider selected="true" editor-type-id="text-editor">
         <state line="11" column="0" selection-start="388" selection-end="388" vertical-scroll-proportion="0.12464589">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/curiouscreature/android/shelves/provider/BookStoreFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="179" column="0" selection-start="6399" selection-end="6399" vertical-scroll-proportion="0.66005665">
           <folding />
         </state>
       </provider>
