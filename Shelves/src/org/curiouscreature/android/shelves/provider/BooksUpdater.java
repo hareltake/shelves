@@ -138,13 +138,15 @@ public class BooksUpdater implements Runnable{
                 entity = response.getEntity();
 
                 final Header header = response.getFirstHeader("Last-Modified");
-                final Calendar calendar = GregorianCalendar.getInstance();
-                try {
-                    calendar.setTime(mLastModifiedFormat.parse(header.getValue()));
-                    expiring.lastModified = calendar;
-                    return calendar.after(book.getLastModified());
-                } catch (ParseException e) {
-                    return false;
+                if (header != null) {
+                    final Calendar calendar = GregorianCalendar.getInstance();
+                    try {
+                        calendar.setTime(mLastModifiedFormat.parse(header.getValue()));
+                        expiring.lastModified = calendar;
+                        return calendar.after(book.getLastModified());
+                    } catch (ParseException e) {
+                        return false;
+                    }
                 }
             }
         } catch (IOException e) {
