@@ -49,6 +49,11 @@
         </activity>
 
         <activity
+            android:name=".activity.AddBookActivity"
+            android:label="@string/activity_add_book"
+            android:theme="@android:style/Theme.Light.NoTitleBar" />
+
+        <activity
             android:name=".activity.BookDetailsActivity"
             android:label="@string/activity_book_details" />
 

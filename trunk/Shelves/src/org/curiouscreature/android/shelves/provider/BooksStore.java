@@ -345,7 +345,7 @@ public abstract class BooksStore {
      *
      * @return A list of Book instances if query was successful or null otherwise.
      */
-    public ArrayList<Book> searchBooks(String query) {
+    public ArrayList<Book> searchBooks(String query, final BookSearchListener listener) {
         final Uri.Builder uri = buildSearchBooksQuery(query);
         final HttpGet get = new HttpGet(uri.build().toString());
         final ArrayList<Book> books = new ArrayList<Book>(10);
@@ -356,7 +356,7 @@ public abstract class BooksStore {
                     parseResponse(in, new ResponseParser() {
                         public void parseResponse(XmlPullParser parser)
                                 throws XmlPullParserException, IOException {
-                            parseBooks(parser, books);
+                            parseBooks(parser, books, listener);
                         }
                     });
                 }
@@ -434,8 +434,8 @@ public abstract class BooksStore {
         return new Book(getName(), null);
     }
 
-    private void parseBooks(XmlPullParser parser, ArrayList<Book> books) throws IOException,
-            XmlPullParserException {
+    private void parseBooks(XmlPullParser parser, ArrayList<Book> books,
+            BookSearchListener listener) throws IOException, XmlPullParserException {
 
         int type;
         while ((type = parser.next()) != XmlPullParser.END_TAG &&
@@ -449,6 +449,7 @@ public abstract class BooksStore {
                 final Book book = createBook();
                 if (parseBook(parser, book)) {
                     books.add(book);
+                    listener.onBookFound(book, books);
                 }
             }
         }
@@ -515,7 +516,33 @@ public abstract class BooksStore {
         public void parseResponse(XmlPullParser parser) throws XmlPullParserException, IOException;
     }
 
+    /**
+     * Interface used to load images with an expiring date. The expiring date is handled by
+     * the image cache to check for updated images from time to time.
+     */
     static interface ImageLoader {
+        /**
+         * Load the specified URL as a Bitmap and associates an expiring date to it.
+         *
+         * @param url The URL of the image to load.
+         *
+         * @return The Bitmap decoded from the URL and an expiration date.
+         */
         public ImageUtilities.ExpiringBitmap load(String url);
+    }
+
+    /**
+     * Listener invoked by
+     * {@link org.curiouscreature.android.shelves.provider.BooksStore#searchBooks(String,
+     * org.curiouscreature.android.shelves.provider.BooksStore.BookSearchListener)}.
+     */
+    public static interface BookSearchListener {
+        /**
+         * Invoked whenever a book was found by the search operation.
+         *
+         * @param book The book yield by the search query.
+         * @param books The books found so far, including <code>book</code>.
+         */
+        void onBookFound(Book book, ArrayList<Book> books);
     }
 }
