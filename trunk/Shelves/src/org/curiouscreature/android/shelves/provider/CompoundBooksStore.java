@@ -20,6 +20,7 @@ import android.net.Uri;
 import android.content.Context;
 
 import java.util.HashMap;
+import java.util.ArrayList;
 import java.io.InputStream;
 import java.io.IOException;
 
@@ -51,6 +52,25 @@ class CompoundBooksStore extends BooksStore {
     }
 
     @Override
+    public ArrayList<Book> searchBooks(String query) {
+        final ArrayList<Book> books = new ArrayList<Book>(20);
+
+        for (BooksStore store : mStores) {
+            if (store != null) {
+                final ArrayList<Book> results = store.searchBooks(query);
+                if (results != null) books.addAll(results);
+            }
+        }
+
+        return books;
+    }
+
+    @Override
+    Uri.Builder buildSearchBooksQuery(String query) {
+        return null;
+    }
+
+    @Override
     Uri.Builder buildFindBookQuery(String id) {
         return null;
     }
@@ -61,6 +81,11 @@ class CompoundBooksStore extends BooksStore {
 
     @Override
     boolean parseBook(XmlPullParser parser, Book book) throws XmlPullParserException, IOException {
+        return false;
+    }
+
+    @Override
+    boolean findNextBook(XmlPullParser parser) throws XmlPullParserException, IOException {
         return false;
     }
 }
