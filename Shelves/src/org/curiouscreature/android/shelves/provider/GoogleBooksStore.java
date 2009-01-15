@@ -37,6 +37,12 @@ class GoogleBooksStore extends BooksStore {
 
     private static final String API_ITEM_LOOKUP = "q";
 
+    private static final String PARAM_MAX_RESULTS = "max-results";
+    private static final String PARAM_START_INDEX = "start-index";
+
+    private static final String VALUE_MAX_RESULTS = "10";
+    private static final String VALUE_START_INDEX = "1";
+
     private static final String RESPONSE_TAG_FEED = "feed";
     private static final String RESPONSE_TAG_ENTRY = "entry";
     private static final String RESPONSE_TAG_TOTAL_RESULTS = "totalResults";
@@ -67,6 +73,15 @@ class GoogleBooksStore extends BooksStore {
     @Override
     Book createBook() {
         return new Book(getName(), mLoader);
+    }
+
+    @Override
+    Uri.Builder buildSearchBooksQuery(String query) {
+        final Uri.Builder uri = buildGetMethod();
+        uri.appendQueryParameter(API_ITEM_LOOKUP, query);
+        uri.appendQueryParameter(PARAM_START_INDEX, VALUE_START_INDEX);
+        uri.appendQueryParameter(PARAM_MAX_RESULTS, VALUE_MAX_RESULTS);
+        return uri;
     }
 
     @Override
@@ -105,13 +120,15 @@ class GoogleBooksStore extends BooksStore {
         }
     }
 
+    @Override
     boolean parseBook(XmlPullParser parser, Book book) throws XmlPullParserException, IOException {
-
         int type;
         String name;
         boolean inEntry = false;
         boolean isValid = false;
         final int depth = parser.getDepth();
+
+        if (RESPONSE_TAG_ENTRY.equals(parser.getName())) isValid = inEntry = true;
 
         while (((type = parser.next()) != XmlPullParser.END_TAG ||
                 parser.getDepth() > depth) && type != XmlPullParser.END_DOCUMENT) {
@@ -167,6 +184,7 @@ class GoogleBooksStore extends BooksStore {
                 final String rel = parser.getAttributeValue(null, RESPONSE_ATTR_REL);
                 if (RESPONSE_VALUE_THUMBNAIL.equals(rel)) {
                     final String url = parser.getAttributeValue(null, RESPONSE_ATTR_HREF);
+                    book.mImages.put(ImageSize.THUMBNAIL, url);
                     book.mImages.put(ImageSize.TINY, url.replace("zoom=5", "zoom=1"));
                 } else if (RESPONSE_VALUE_INFO.equals(rel)) {
                     book.mDetailsUrl = parser.getAttributeValue(null, RESPONSE_ATTR_HREF);
@@ -192,6 +210,29 @@ class GoogleBooksStore extends BooksStore {
         }
 
         return isValid;
+    }
+
+    @Override
+    boolean findNextBook(XmlPullParser parser) throws XmlPullParserException, IOException {
+        if (RESPONSE_TAG_ENTRY.equals(parser.getName())) {
+            return true;
+        }
+
+        int type;
+        final int depth = parser.getDepth();
+
+        while (((type = parser.next()) != XmlPullParser.END_TAG ||
+                parser.getDepth() > depth) && type != XmlPullParser.END_DOCUMENT) {
+            if (type != XmlPullParser.START_TAG) {
+                continue;
+            }
+
+            if (RESPONSE_TAG_ENTRY.equals(parser.getName())) {
+                return true;
+            }
+        }
+
+        return false;
     }
 
     /**

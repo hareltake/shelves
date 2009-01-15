@@ -61,7 +61,7 @@ public abstract class BooksStore {
     public enum ImageSize {
         // SWATCH,
         // SMALL,
-        // THUMBNAIL,
+        THUMBNAIL,
         TINY,
         // MEDIUM,
         // LARGE
@@ -338,10 +338,57 @@ public abstract class BooksStore {
         return null;
     }
 
-    Book createBook() {
-        return new Book(getName(), null);
+    /**
+     * Searchs for books that match the provided query.
+     *
+     * @param query The free form query used to search for books.
+     *
+     * @return A list of Book instances if query was successful or null otherwise.
+     */
+    public ArrayList<Book> searchBooks(String query) {
+        final Uri.Builder uri = buildSearchBooksQuery(query);
+        final HttpGet get = new HttpGet(uri.build().toString());
+        final ArrayList<Book> books = new ArrayList<Book>(10);
+
+        try {
+            executeRequest(new HttpHost(mHost, 80, "http"), get, new ResponseHandler() {
+                public void handleResponse(InputStream in) throws IOException {
+                    parseResponse(in, new ResponseParser() {
+                        public void parseResponse(XmlPullParser parser)
+                                throws XmlPullParserException, IOException {
+                            parseBooks(parser, books);
+                        }
+                    });
+                }
+            });
+
+            return books;
+        } catch (IOException e) {
+            android.util.Log.e(LOG_TAG, "Could not perform search with query: " + query, e);
+        }
+
+        return null;
     }
 
+    /**
+     * Constructs the query used to search for books. The query can be any combination
+     * of keywords. The store is free to interpret the keywords in any way.
+     *
+     * @param query A free form text query to search for books.
+     *
+     * @return The Uri to the list of books matching the query.
+     */
+    abstract Uri.Builder buildSearchBooksQuery(String query);
+
+    /**
+     * Constructs the query used to find a book identified by its id. The unique
+     * identifier should be either the EAN (ISBN-13) or ISBN (ISBN-10) of the book
+     * to find.
+     *
+     * @param id The EAN or ISBN of the book to find.
+     *
+     * @return The Uri to the books details for this book store.
+     */
     abstract Uri.Builder buildFindBookQuery(String id);
 
     /**
@@ -366,6 +413,46 @@ public abstract class BooksStore {
      */
     abstract boolean parseBook(XmlPullParser parser, Book book) throws XmlPullParserException,
             IOException;
+
+    /**
+     * Finds the next book entry in the XML input stream.
+     *
+     * @param parser The XML parser to use to parse the book.
+     *
+     * @return True if a book was found, false otherwise.
+     */
+    abstract boolean findNextBook(XmlPullParser parser) throws XmlPullParserException,
+            IOException;
+
+    /**
+     * Creates an instance of {@link org.curiouscreature.android.shelves.provider.BooksStore.Book}
+     * with this book store's name.
+     *
+     * @return A new instance of Book.
+     */
+    Book createBook() {
+        return new Book(getName(), null);
+    }
+
+    private void parseBooks(XmlPullParser parser, ArrayList<Book> books) throws IOException,
+            XmlPullParserException {
+
+        int type;
+        while ((type = parser.next()) != XmlPullParser.END_TAG &&
+                type != XmlPullParser.END_DOCUMENT) {
+
+            if (type != XmlPullParser.START_TAG) {
+                continue;
+            }
+
+            if (findNextBook(parser)) {
+                final Book book = createBook();
+                if (parseBook(parser, book)) {
+                    books.add(book);
+                }
+            }
+        }
+    }
 
     /**
      * Executes an HTTP request on a REST web service. If the response is ok, the content
