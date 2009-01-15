@@ -20,6 +20,7 @@
 
     <string name="activity_preferences">Settings</string>
     <string name="activity_book_details">Book details</string>
+    <string name="activity_add_book">Add book</string>
 
     <string name="bookstore_all">All stores</string>
     <string name="bookstore_amazon">Amazon</string>
@@ -36,8 +37,9 @@
     <string name="success_book_not_found">You do not have this book</string>
     <string name="success_book_deleted">Book deleted</string>
 
+    <string name="menu_item_add_search_label">Add</string>
     <string name="menu_item_add_label">Scan to add</string>
-    <string name="menu_item_check_label">Scan to check</string>
+    <string name="menu_item_check_label">Scan to find</string>
     <string name="menu_item_search_label">Search</string>
     <string name="menu_item_settings_label">Settings</string>
 
@@ -49,6 +51,9 @@
     <string name="cancel_label">Cancel</string>
     <string name="search_label">Books</string>
     <string name="search_hint">Search by title or author</string>
+
+    <string name="search_title">Search for books to add</string>
+    <string name="search_add_hint">Title, author or keywords</string>
 
     <string name="preferences_category_bookstore">Books</string>
     <string name="preferences_bookstore">Book store</string>

@@ -287,6 +287,9 @@ public class ShelvesActivity extends Activity {
     @Override
     public boolean onMenuItemSelected(int featureId, MenuItem item) {
         switch (item.getItemId()) {
+            case R.id.menu_item_add_search:
+                onAddSearch();
+                return true;
             case R.id.menu_item_add:
                 onAdd();
                 return true;
@@ -384,6 +387,10 @@ public class ShelvesActivity extends Activity {
         } catch (ActivityNotFoundException e) {
             UIUtilities.showToast(this, R.string.error_missing_barcode_scanner, true);
         }
+    }
+
+    private void onAddSearch() {
+        AddBookActivity.show(this);
     }
 
     private void onAdd() {

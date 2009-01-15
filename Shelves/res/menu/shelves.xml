@@ -18,9 +18,14 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:icon="@drawable/ic_menu_add"
+        android:id="@+id/menu_item_add_search"
+        android:title="@string/menu_item_add_search_label"
+        android:alphabeticShortcut="a" />
+    <item
+        android:icon="@drawable/ic_menu_add"
         android:id="@+id/menu_item_add"
         android:title="@string/menu_item_add_label"
-        android:alphabeticShortcut="a" />
+        android:alphabeticShortcut="b" />
     <item
         android:icon="@drawable/ic_menu_check"
         android:id="@+id/menu_item_check"
