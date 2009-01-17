@@ -28,6 +28,7 @@
 
     <string name="error_missing_barcode_scanner">You must first install the application Barcode Scanner</string>
     <string name="error_import_in_progress">You are already importing books</string>
+    <string name="error_search_in_progress">You are already searching for books</string>
     <string name="error_missing_import_file">Could not find /sdcard/library.txt</string>
     <string name="error_adding_book">Could not find book</string>
     <string name="error_book_exists">You already have this book</string>
@@ -36,6 +37,7 @@
     <string name="success_added">Successfully added book %s</string>
     <string name="success_book_not_found">You do not have this book</string>
     <string name="success_book_deleted">Book deleted</string>
+    <string name="success_found">Found %d books</string>
 
     <string name="menu_item_add_search_label">Add</string>
     <string name="menu_item_add_label">Scan to add</string>
@@ -54,6 +56,11 @@
 
     <string name="search_title">Search for books to add</string>
     <string name="search_add_hint">Title, author or keywords</string>
+    <string name="search_progress">Searching...</string>
+
+    <string name="dialog_add_message">Do you want to add this book to your collection?</string>
+    <string name="dialog_add_ok">Add</string>
+    <string name="dialog_add_cancel">Don't add</string>
 
     <string name="preferences_category_bookstore">Books</string>
     <string name="preferences_bookstore">Book store</string>

@@ -140,6 +140,11 @@ public abstract class BooksStore {
 
         private Book(Parcel in) {
             mIsbn = in.readString();
+            mEan = in.readString();
+            mInternalId = in.readString();
+            mTitle = in.readString();
+            mAuthors = new ArrayList<String>(1);
+            in.readStringList(mAuthors);
         }
 
         public String getIsbn() {
@@ -152,6 +157,10 @@ public abstract class BooksStore {
 
         public String getInternalId() {
             return mStorePrefix + mInternalId;
+        }
+
+        public String getInternalIdNoPrefix() {
+            return mInternalId;
         }
 
         public List<String> getAuthors() {
@@ -271,6 +280,10 @@ public abstract class BooksStore {
 
         public void writeToParcel(Parcel dest, int flags) {
             dest.writeString(mIsbn);
+            dest.writeString(mEan);
+            dest.writeString(mInternalId);
+            dest.writeString(mTitle);
+            dest.writeStringList(mAuthors);
         }
 
         public static final Creator<Book> CREATOR = new Creator<Book>() {

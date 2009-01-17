@@ -52,12 +52,12 @@ class CompoundBooksStore extends BooksStore {
     }
 
     @Override
-    public ArrayList<Book> searchBooks(String query) {
+    public ArrayList<Book> searchBooks(String query, BookSearchListener listener) {
         final ArrayList<Book> books = new ArrayList<Book>(20);
 
         for (BooksStore store : mStores) {
             if (store != null) {
-                final ArrayList<Book> results = store.searchBooks(query);
+                final ArrayList<Book> results = store.searchBooks(query, listener);
                 if (results != null) books.addAll(results);
             }
         }
