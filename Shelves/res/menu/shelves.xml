@@ -22,7 +22,7 @@
         android:title="@string/menu_item_add_search_label"
         android:alphabeticShortcut="a" />
     <item
-        android:icon="@drawable/ic_menu_add"
+        android:icon="@drawable/ic_menu_scan"
         android:id="@+id/menu_item_add"
         android:title="@string/menu_item_add_label"
         android:alphabeticShortcut="b" />

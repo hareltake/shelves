@@ -274,6 +274,31 @@ public class ImageUtilities {
     }
 
     /**
+     * Return the same image with a shadow, scaled by the specified amount..
+     *
+     * @param bitmap The bitmap to decor with a shadow
+     * @param width The target width of the decored bitmap
+     * @param height The target height of the decored bitmap
+     *
+     * @return A new Bitmap based on the original bitmap
+     */
+    public static Bitmap createShadow(Bitmap bitmap, int width, int height) {
+        if (bitmap == null) return null;
+
+        final int bitmapWidth = bitmap.getWidth();
+        final int bitmapHeight = bitmap.getHeight();
+
+        final float scale = Math.min((float) width / (float) bitmapWidth,
+                (float) height / (float) bitmapHeight);
+
+        final int scaledWidth = (int) (bitmapWidth * scale);
+        final int scaledHeight = (int) (bitmapHeight * scale);
+
+        return createScaledBitmap(bitmap, scaledWidth, scaledHeight,
+                SHADOW_RADIUS, false, SHADOW_PAINT);
+    }
+
+    /**
      * Create a book cover with the specified bitmap. This method applies several
      * lighting effects to the original bitmap and returns a new decored bitmap.
      *
@@ -294,7 +319,7 @@ public class ImageUtilities {
         final int scaledHeight = (int) (bitmapHeight * scale);
 
         final Bitmap decored = createScaledBitmap(bitmap, scaledWidth, scaledHeight,
-                SHADOW_RADIUS, SHADOW_PAINT);
+                SHADOW_RADIUS, true, SHADOW_PAINT);
         final Canvas canvas = new Canvas(decored);
 
         canvas.translate(SHADOW_RADIUS / 2.0f, SHADOW_RADIUS / 2.0f);
@@ -324,7 +349,7 @@ public class ImageUtilities {
     }
 
     private static Bitmap createScaledBitmap(Bitmap src, int dstWidth, int dstHeight,
-            float offset, Paint paint) {
+            float offset, boolean clipShadow, Paint paint) {
         
         Matrix m;
         synchronized (Bitmap.class) {
@@ -342,7 +367,7 @@ public class ImageUtilities {
         final float sy = dstHeight / (float) height;
         m.setScale(sx, sy);
 
-        Bitmap b = createBitmap(src, 0, 0, width, height, m, offset, paint);
+        Bitmap b = createBitmap(src, 0, 0, width, height, m, offset, clipShadow, paint);
 
         synchronized (Bitmap.class) {
             sScaleMatrix = m;
@@ -352,7 +377,7 @@ public class ImageUtilities {
     }
 
     private static Bitmap createBitmap(Bitmap source, int x, int y, int width,
-            int height, Matrix m, float offset, Paint paint) {
+            int height, Matrix m, float offset, boolean clipShadow, Paint paint) {
 
         int scaledWidth = width;
         int scaledHeight = height;
@@ -367,7 +392,8 @@ public class ImageUtilities {
 
         if (m == null || m.isIdentity()) {
             bitmap = Bitmap.createBitmap(scaledWidth + (int) offset,
-                    scaledHeight + (int) (offset / 2.0f), Bitmap.Config.ARGB_8888);
+                    scaledHeight + (int) (clipShadow ? (offset / 2.0f) : offset),
+                    Bitmap.Config.ARGB_8888);
             paint = null;
         } else {
             RectF mapped = new RectF();
@@ -377,7 +403,8 @@ public class ImageUtilities {
             scaledHeight = Math.round(mapped.height());
 
             bitmap = Bitmap.createBitmap(scaledWidth + (int) offset,
-                    scaledHeight + (int) (offset / 2.0f), Bitmap.Config.ARGB_8888);
+                    scaledHeight + (int) (clipShadow ? (offset / 2.0f) : offset),
+                    Bitmap.Config.ARGB_8888);
             canvas.translate(-mapped.left, -mapped.top);
             canvas.concat(m);
         }

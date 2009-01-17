@@ -467,13 +467,13 @@ public class ShelvesActivity extends Activity {
     }
 
     private void showPanel(View panel, boolean slideUp) {
-        panel.startAnimation(AnimationUtils.loadAnimation(ShelvesActivity.this,
+        panel.startAnimation(AnimationUtils.loadAnimation(this,
                 slideUp ? R.anim.slide_in : R.anim.slide_out_top));
         panel.setVisibility(View.VISIBLE);
     }
 
     private void hidePanel(View panel, boolean slideDown) {
-        panel.startAnimation(AnimationUtils.loadAnimation(ShelvesActivity.this,
+        panel.startAnimation(AnimationUtils.loadAnimation(this,
                 slideDown ? R.anim.slide_out : R.anim.slide_in_top));
         panel.setVisibility(View.GONE);
     }
