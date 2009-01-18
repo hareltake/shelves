@@ -81,6 +81,7 @@ class GoogleBooksStore extends BooksStore {
         uri.appendQueryParameter(API_ITEM_LOOKUP, query);
         uri.appendQueryParameter(PARAM_START_INDEX, VALUE_START_INDEX);
         uri.appendQueryParameter(PARAM_MAX_RESULTS, VALUE_MAX_RESULTS);
+        android.util.Log.d(LOG_TAG, uri.toString());
         return uri;
     }
 
@@ -88,6 +89,7 @@ class GoogleBooksStore extends BooksStore {
     Uri.Builder buildFindBookQuery(String id) {
         final Uri.Builder uri = buildGetMethod();
         uri.appendQueryParameter(API_ITEM_LOOKUP, id);
+        android.util.Log.d(LOG_TAG, uri.toString());
         return uri;
     }
 
@@ -158,7 +160,7 @@ class GoogleBooksStore extends BooksStore {
                                 break;
                         }
                     } else {
-                        book.mInternalId = value.replace(':', '_');
+                        if (book.mInternalId == null) book.mInternalId = value.replace(':', '_');
                     }
                 }
             } else if (RESPONSE_TAG_ENTRY.equals(name)) {
@@ -209,6 +211,7 @@ class GoogleBooksStore extends BooksStore {
             }
         }
 
+        isValid = isValid && (book.mIsbn != null || book.mEan != null);
         return isValid;
     }
 
