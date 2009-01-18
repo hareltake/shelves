@@ -28,6 +28,8 @@ class LayerDrawable extends Drawable implements Drawable.Callback {
     private int[] mPaddingB;
 
     private final Rect mTmpRect = new Rect();
+    private Drawable mParent;
+    private boolean mBlockSetBounds;
 
     LayerDrawable(Drawable... layers) {
         this(null, layers);
@@ -197,6 +199,27 @@ class LayerDrawable extends Drawable implements Drawable.Callback {
             onBoundsChange(getBounds());
         }
         return changed;
+    }
+
+    @Override
+    public void setBounds(int left, int top, int right, int bottom) {
+        if (mBlockSetBounds) return;
+
+        final int width = mLayerState.mArray[0].mDrawable.getIntrinsicWidth();
+        left -= (width - (right - left)) / 2.0f;
+        right = left + width;
+        bottom = top + getIntrinsicHeight();
+        super.setBounds(left, top, right, bottom);
+
+        if (mParent != null) {
+            mBlockSetBounds = true;
+            mParent.setBounds(left, top, right, bottom);
+            mBlockSetBounds = false;
+        }
+    }
+
+    public void setParent(Drawable drawable) {
+        mParent = drawable;
     }
 
     @Override

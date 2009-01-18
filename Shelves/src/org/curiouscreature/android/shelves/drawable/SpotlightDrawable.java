@@ -27,19 +27,21 @@ import android.graphics.PorterDuff;
 import android.graphics.PixelFormat;
 import android.graphics.Rect;
 import android.content.Context;
+import android.view.ViewGroup;
 import android.view.View;
 import org.curiouscreature.android.shelves.R;
 
 public class SpotlightDrawable extends Drawable {
     private final Bitmap mBitmap;
     private final Paint mPaint;
-    private final View mView;
+    private final ViewGroup mView;
+    private boolean mOffsetDisabled;
 
-    public SpotlightDrawable(Context context, View view) {
+    public SpotlightDrawable(Context context, ViewGroup view) {
         this(context, view, R.drawable.spotlight);
     }
 
-    public SpotlightDrawable(Context context, View view, int resource) {
+    public SpotlightDrawable(Context context, ViewGroup view, int resource) {
         mView = view;
         mBitmap = BitmapFactory.decodeResource(context.getResources(), resource);
 
@@ -50,8 +52,24 @@ public class SpotlightDrawable extends Drawable {
     public void draw(Canvas canvas) {
         if (mView.hasWindowFocus()) {
             final Rect bounds = getBounds();
+            canvas.save();
             canvas.drawBitmap(mBitmap, bounds.left, bounds.top, mPaint);
         }
+    }
+
+    @Override
+    public void setBounds(int left, int top, int right, int bottom) {
+        if (!mOffsetDisabled) {
+            final int width = getIntrinsicWidth();
+            final View view = mView.getChildAt(0);
+            if (view != null) left -= (width - view.getWidth()) / 2.0f;
+            right = left + width;
+            bottom = top + getIntrinsicHeight();
+        } else {
+            right = left + getIntrinsicWidth();
+            bottom = top + getIntrinsicHeight();
+        }
+        super.setBounds(left, top, right, bottom);
     }
 
     @Override
@@ -70,5 +88,19 @@ public class SpotlightDrawable extends Drawable {
 
     public int getOpacity() {
         return PixelFormat.TRANSLUCENT;
+    }
+
+    @Override
+    public int getIntrinsicWidth() {
+        return mBitmap.getWidth();
+    }
+
+    @Override
+    public int getIntrinsicHeight() {
+        return mBitmap.getHeight();
+    }
+
+    public void disableOffset() {
+        mOffsetDisabled = true;
     }
 }

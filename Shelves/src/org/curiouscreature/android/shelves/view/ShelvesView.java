@@ -25,6 +25,8 @@ import android.graphics.BitmapFactory;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.drawable.StateListDrawable;
+import android.graphics.drawable.Drawable;
+import android.view.ViewConfiguration;
 import org.curiouscreature.android.shelves.R;
 import org.curiouscreature.android.shelves.drawable.SpotlightDrawable;
 import org.curiouscreature.android.shelves.drawable.TransitionDrawable;
@@ -80,11 +82,15 @@ public class ShelvesView extends GridView {
         StateListDrawable drawable = new StateListDrawable();
 
         SpotlightDrawable start = new SpotlightDrawable(context, this);
+        start.disableOffset();
         SpotlightDrawable end = new SpotlightDrawable(context, this, R.drawable.spotlight_blue);
+        end.disableOffset();
+        TransitionDrawable transition = new TransitionDrawable(start, end);
         drawable.addState(new int[] { android.R.attr.state_pressed },
-                new TransitionDrawable(start, end));
+                transition);
 
-        drawable.addState(new int[] { }, start);
+        drawable.addState(new int[] { }, new SpotlightDrawable(context, this));
+        transition.setParent(drawable);
 
         setSelector(drawable);
         setDrawSelectorOnTop(false);
@@ -112,5 +118,22 @@ public class ShelvesView extends GridView {
         }
 
         super.dispatchDraw(canvas);
+    }
+
+    
+
+    @Override
+    public void setPressed(boolean pressed) {
+        super.setPressed(pressed);
+
+        final Drawable current = getSelector().getCurrent();
+        if (current instanceof TransitionDrawable) {
+            if (pressed) {
+                ((TransitionDrawable) current).startTransition(
+                        ViewConfiguration.getLongPressTimeout());
+            } else {
+                ((TransitionDrawable) current).resetTransition();
+            }
+        }
     }
 }
