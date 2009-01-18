@@ -104,6 +104,8 @@ public class ShelvesActivity extends Activity {
     private View mAddPanel;
     private ShelvesView mGrid;
 
+    private Bundle mSavedState;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -177,6 +179,7 @@ public class ShelvesActivity extends Activity {
     protected void onResume() {
         super.onResume();
         mBooksUpdater.start();
+        if (mSavedState != null) restoreLocalState(mSavedState);
     }
 
     @Override
@@ -214,6 +217,11 @@ public class ShelvesActivity extends Activity {
     @Override
     protected void onRestoreInstanceState(Bundle savedInstanceState) {
         super.onRestoreInstanceState(savedInstanceState);
+        restoreLocalState(savedInstanceState);
+        mSavedState = null;
+    }
+
+    private void restoreLocalState(Bundle savedInstanceState) {
         restoreAddTask(savedInstanceState);
         restoreImportTask(savedInstanceState);
     }
@@ -223,6 +231,7 @@ public class ShelvesActivity extends Activity {
         super.onSaveInstanceState(outState);
         saveAddTask(outState);
         saveImportTask(outState);
+        mSavedState = outState;
     }
 
     private void saveAddTask(Bundle outState) {
@@ -264,7 +273,6 @@ public class ShelvesActivity extends Activity {
 
     private void restoreImportTask(Bundle savedInstanceState) {
         if (savedInstanceState.getBoolean(STATE_IMPORT_IN_PROGRESS)) {
-
             ArrayList<String> books = savedInstanceState.getStringArrayList(STATE_IMPORT_BOOKS);
             int index = savedInstanceState.getInt(STATE_IMPORT_INDEX);
 
@@ -300,11 +308,15 @@ public class ShelvesActivity extends Activity {
                 onSearchRequested();
                 return true;
             case R.id.menu_item_settings:
-                SettingsActivity.show(this);
+                onSettings();
                 return true;
         }
 
         return super.onMenuItemSelected(featureId, item);
+    }
+
+    private void onSettings() {
+        SettingsActivity.show(this);
     }
 
     @Override

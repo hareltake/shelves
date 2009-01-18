@@ -142,9 +142,11 @@ public class AddBookActivity extends Activity implements View.OnClickListener,
     @Override
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
-        saveBookToAdd(outState);
-        saveAddTask(outState);
-        saveSearchTask(outState);
+        if (isFinishing()) {
+            saveBookToAdd(outState);
+            saveAddTask(outState);
+            saveSearchTask(outState);
+        }
     }
 
     @Override

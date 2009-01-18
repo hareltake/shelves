@@ -60,7 +60,7 @@
 
     <string name="dialog_add_message">Do you want to add this book to your collection?</string>
     <string name="dialog_add_ok">Add</string>
-    <string name="dialog_add_cancel">Don't add</string>
+    <string name="dialog_add_cancel">Don\'t add</string>
 
     <string name="preferences_category_bookstore">Books</string>
     <string name="preferences_bookstore">Book store</string>
