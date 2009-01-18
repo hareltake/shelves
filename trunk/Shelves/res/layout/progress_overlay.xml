@@ -22,6 +22,7 @@
     android:paddingLeft="10dip"
     android:paddingTop="5dip"
     android:paddingRight="10dip"
+    android:paddingBottom="4dip"
 
     android:background="@color/translucenter_dark">
 
