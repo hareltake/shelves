@@ -744,8 +744,12 @@ public class ShelvesActivity extends Activity {
 
             String title = ((BookViewHolder) view.getChildAt(0).getTag()).sortTitle;
             title = title.substring(0, Math.min(title.length(), 2));
-            buffer.append(Character.toUpperCase(title.charAt(0)));
-            buffer.append(title.charAt(1));
+            if (title.length() == 2) {
+                buffer.append(Character.toUpperCase(title.charAt(0)));
+                buffer.append(title.charAt(1));
+            } else {
+                buffer.append(title.toUpperCase());
+            }
 
             if (count > 1) {
                 buffer.append(" - ");
@@ -753,8 +757,13 @@ public class ShelvesActivity extends Activity {
                 final int lastChild = count - 1;
                 title = ((BookViewHolder) view.getChildAt(lastChild).getTag()).sortTitle;
                 title = title.substring(0, Math.min(title.length(), 2));
-                buffer.append(Character.toUpperCase(title.charAt(0)));
-                buffer.append(title.charAt(1));
+
+                if (title.length() == 2) {
+                    buffer.append(Character.toUpperCase(title.charAt(0)));
+                    buffer.append(title.charAt(1));
+                } else {
+                   buffer.append(title.toUpperCase());
+                }
             }
 
             final String prefix = buffer.toString();
