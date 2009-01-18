@@ -35,7 +35,10 @@ public class SpotlightDrawable extends Drawable {
     private final Bitmap mBitmap;
     private final Paint mPaint;
     private final ViewGroup mView;
+
     private boolean mOffsetDisabled;
+    private boolean mBlockSetBounds;
+    private Drawable mParent;
 
     public SpotlightDrawable(Context context, ViewGroup view) {
         this(context, view, R.drawable.spotlight);
@@ -59,6 +62,8 @@ public class SpotlightDrawable extends Drawable {
 
     @Override
     public void setBounds(int left, int top, int right, int bottom) {
+        if (mBlockSetBounds) return;
+
         if (!mOffsetDisabled) {
             final int width = getIntrinsicWidth();
             final View view = mView.getChildAt(0);
@@ -69,7 +74,18 @@ public class SpotlightDrawable extends Drawable {
             right = left + getIntrinsicWidth();
             bottom = top + getIntrinsicHeight();
         }
+
         super.setBounds(left, top, right, bottom);
+
+        if (mParent != null) {
+            mBlockSetBounds = true;
+            mParent.setBounds(left, top, right, bottom);
+            mBlockSetBounds = false;
+        }
+    }
+
+    public void setParent(Drawable drawable) {
+        mParent = drawable;
     }
 
     @Override

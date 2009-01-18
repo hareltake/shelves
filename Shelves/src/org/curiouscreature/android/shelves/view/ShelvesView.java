@@ -89,7 +89,10 @@ public class ShelvesView extends GridView {
         drawable.addState(new int[] { android.R.attr.state_pressed },
                 transition);
 
-        drawable.addState(new int[] { }, new SpotlightDrawable(context, this));
+        final SpotlightDrawable normal = new SpotlightDrawable(context, this);
+        drawable.addState(new int[] { }, normal);
+
+        normal.setParent(drawable);
         transition.setParent(drawable);
 
         setSelector(drawable);
