@@ -120,8 +120,6 @@ class BooksAdapter extends CursorAdapter implements FilterQueryProvider {
         if (size != 0) {
             holder.title.setText(buffer.data, 0, size);
         }
-
-        holder.rebound = true;
     }
 
     @Override

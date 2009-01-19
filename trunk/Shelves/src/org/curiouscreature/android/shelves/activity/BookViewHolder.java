@@ -23,7 +23,6 @@ import org.curiouscreature.android.shelves.drawable.CrossFadeDrawable;
 class BookViewHolder {
     TextView title;
     String bookId;
-    boolean rebound;
     CrossFadeDrawable transition;
     final CharArrayBuffer buffer = new CharArrayBuffer(64);
     boolean queryCover;
