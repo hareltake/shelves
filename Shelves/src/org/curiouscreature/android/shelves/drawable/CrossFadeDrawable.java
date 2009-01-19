@@ -23,6 +23,7 @@ import android.graphics.Bitmap;
 import android.graphics.Paint;
 import android.graphics.drawable.Drawable;
 import android.os.SystemClock;
+import android.os.Handler;
 
 public class CrossFadeDrawable extends Drawable {
     private static final int TRANSITION_STARTING = 0;
@@ -51,9 +52,18 @@ public class CrossFadeDrawable extends Drawable {
     private float mEndX;
     private float mEndY;
 
+    private final Handler mHandler;
+    private final Runnable mInvalidater;
+
     public CrossFadeDrawable(Bitmap start, Bitmap end) {
         mStart = start;
         mEnd = end;
+        mHandler = new Handler();
+        mInvalidater = new Runnable() {
+            public void run() {
+                invalidateSelf();
+            }
+        };
     }
 
     /**
@@ -105,7 +115,7 @@ public class CrossFadeDrawable extends Drawable {
             }
             mDuration = mOriginalDuration = duration;
             mTransitionState = TRANSITION_STARTING;
-            invalidateSelf();
+            mHandler.post(mInvalidater);
             return;
         }
 
@@ -137,7 +147,7 @@ public class CrossFadeDrawable extends Drawable {
 
                     if (done) {
                         mTransitionState = TRANSITION_NONE;
-                        invalidateSelf();
+                        mHandler.post(mInvalidater);
                     }
                 }
                 break;
@@ -168,7 +178,7 @@ public class CrossFadeDrawable extends Drawable {
         }
 
         if (!done) {
-            invalidateSelf();
+            mHandler.post(mInvalidater);
         }
     }
 

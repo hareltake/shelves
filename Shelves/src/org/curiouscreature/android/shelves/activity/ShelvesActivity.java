@@ -498,23 +498,18 @@ public class ShelvesActivity extends Activity {
         final int count = grid.getChildCount();
 
         for (int i = 0; i < count; i++) {
-            final BookViewHolder holder = (BookViewHolder) grid.getChildAt(i).getTag();
-            if (holder.rebound) {
-                if (holder.queryCover) {
-                    final String bookId = holder.bookId;
-                    FastBitmapDrawable cached = ImageUtilities.getCachedCover(bookId, cover);
-                    if (cached != cover) {
-                        CrossFadeDrawable d = holder.transition;
-                        d.setEnd(cached.getBitmap());
-                        holder.title.setCompoundDrawablesWithIntrinsicBounds(null, null,
-                                null, d);
-                        d.startTransition(COVER_TRANSITION_DURATION);
-                    } else {
-                        holder.title.setCompoundDrawablesWithIntrinsicBounds(null, null,
-                                null, cached);
-                    }
-                }
-                holder.rebound = false;
+            final View view = grid.getChildAt(i);
+            final BookViewHolder holder = (BookViewHolder) view.getTag();
+            if (holder.queryCover) {
+                final String bookId = holder.bookId;
+
+                FastBitmapDrawable cached = ImageUtilities.getCachedCover(bookId, cover);
+                CrossFadeDrawable d = holder.transition;
+                d.setEnd(cached.getBitmap());
+                holder.title.setCompoundDrawablesWithIntrinsicBounds(null, null,
+                        null, d);
+                d.startTransition(COVER_TRANSITION_DURATION);
+                holder.queryCover = false;
             }
         }
 
