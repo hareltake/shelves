@@ -40,7 +40,7 @@ import static org.xmlpull.v1.XmlPullParser.*;
 
 public final class BookStoreFactory {
     private static final String LOG_TAG = "ShelvesParser";
-    public static final String DEFAULT_BOOK_STORE = "all";
+    public static final String DEFAULT_BOOK_STORE = "google";
 
     private static final String TAG_STORES = "stores";
     private static final String TAG_STORE = "store";
