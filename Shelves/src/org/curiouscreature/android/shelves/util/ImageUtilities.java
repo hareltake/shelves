@@ -143,20 +143,14 @@ public class ImageUtilities {
      * @return The drawable identified by id or defaultCover
      */
     public static FastBitmapDrawable getCachedCover(String id, FastBitmapDrawable defaultCover) {
-        boolean fromCache = false;
         FastBitmapDrawable drawable = null;
 
         SoftReference<FastBitmapDrawable> reference = sArtCache.get(id);
         if (reference != null) {
             drawable = reference.get();
-            fromCache = true;
         }
 
         if (drawable == null) {
-            if (fromCache) {
-                sArtCache.remove(id);
-            }
-
             final Bitmap bitmap = loadCover(id);
             if (bitmap != null) {
                 drawable = new FastBitmapDrawable(bitmap);
