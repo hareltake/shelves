@@ -24,7 +24,7 @@ public final class TextUtilities {
     }
 
     public static String join(Collection<?> items, String delimiter) {
-        if (items.isEmpty()) {
+        if (items == null || items.isEmpty()) {
             return "";
         }
 
