@@ -47,6 +47,7 @@
         android:layout_toRightOf="@id/image_cover"
         android:layout_alignWithParentIfMissing="true"
 
+        android:ellipsize="marquee"
         android:singleLine="true"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
@@ -59,6 +60,7 @@
         android:layout_alignLeft="@id/label_title"
         android:layout_alignParentRight="true"
 
+        android:ellipsize="marquee"
         android:singleLine="true"
 		android:textAppearance="?android:attr/textAppearanceSmall" />
 
