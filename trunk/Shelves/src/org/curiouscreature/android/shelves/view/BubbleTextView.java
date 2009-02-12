@@ -41,6 +41,12 @@ public class BubbleTextView extends TextView {
     private Paint mPaint;
     private Drawable mDrawableBottom;
 
+    private boolean mBackgroundSizeChanged;
+    private Drawable mBackground;
+    private float mCornerRadius;
+    private float mPaddingH;
+    private float mPaddingV;
+
     public BubbleTextView(Context context) {
         super(context);
         init();
@@ -57,24 +63,76 @@ public class BubbleTextView extends TextView {
     }
 
     private void init() {
+        mBackground = getBackground();
+        setBackgroundDrawable(null);
+        if (mBackground != null) mBackground.setCallback(this);
+
         mPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
         mPaint.setColor(getContext().getResources().getColor(R.color.translucent_dark));
+
+        final float scale = getContext().getResources().getDisplayMetrics().density;
+        mCornerRadius = CORNER_RADIUS * scale;
+        mPaddingH = PADDING_H * scale;
+        //noinspection PointlessArithmeticExpression
+        mPaddingV = PADDING_V * scale;
     }
 
     @Override
-    public void onDraw(Canvas canvas) {
+    protected boolean setFrame(int left, int top, int right, int bottom) {
+        if (getLeft() != left || getRight() != right || getTop() != top || getBottom() != bottom) {
+            mBackgroundSizeChanged = true;
+        }
+        return super.setFrame(left, top, right, bottom);
+    }
+
+    @Override
+    protected boolean verifyDrawable(Drawable who) {
+        return mDrawableBottom == who || who == mBackground || super.verifyDrawable(who);
+    }
+
+    @Override
+    protected void drawableStateChanged() {
+        Drawable d = mBackground;
+        if (d != null && d.isStateful()) {
+            d.setState(getDrawableState());
+        }
+        super.drawableStateChanged();
+    }
+
+    @Override
+    public void draw(Canvas canvas) {
+        final Drawable background = mBackground;
+        if (background != null) {
+            final int scrollX = getScrollX();
+            final int scrollY = getScrollY();
+
+            if (mBackgroundSizeChanged) {
+                background.setBounds(0, 0,  getWidth(), getHeight());
+                mBackgroundSizeChanged = false;
+            }
+
+            if ((scrollX | scrollY) == 0) {
+                background.draw(canvas);
+            } else {
+                canvas.translate(scrollX, scrollY);
+                background.draw(canvas);
+                canvas.translate(-scrollX, -scrollY);
+            }
+        }
+
         final Layout layout = getLayout();
         final RectF rect = mRect;
         final int left = getCompoundPaddingLeft();
         final int top = getExtendedPaddingTop();
 
-        rect.set(left + layout.getLineLeft(0) - PADDING_H,
-                top + layout.getLineTop(0) - PADDING_V,
-                Math.min(left + layout.getLineRight(0) + PADDING_H, getScrollX() + getWidth()),
-                top + layout.getLineBottom(0) + PADDING_V);
-        canvas.drawRoundRect(rect, CORNER_RADIUS, CORNER_RADIUS, mPaint);
+        rect.set(left + layout.getLineLeft(0) - mPaddingH,
+                top + layout.getLineTop(0) -  mPaddingV,
+                Math.min(left + layout.getLineRight(0),
+                        getScrollX() + getWidth() - getCompoundPaddingRight()) + mPaddingH,
+                top + layout.getLineBottom(0) + mPaddingV);
+        canvas.drawRoundRect(rect, mCornerRadius, mCornerRadius, mPaint);
 
-        super.onDraw(canvas);
+        super.draw(canvas);
     }
 
     @Override
@@ -98,11 +156,8 @@ public class BubbleTextView extends TextView {
             final int top = getHeight() - getPaddingBottom() - drawableHeight + getScrollY();
 
             invalidate(left, top, left + drawableWidth, top + drawableHeight);
+        } else {
+            super.invalidateDrawable(drawable);
         }
-    }
-
-    @Override
-    protected boolean verifyDrawable(Drawable who) {
-        return mDrawableBottom == who || super.verifyDrawable(who);
     }
 }
