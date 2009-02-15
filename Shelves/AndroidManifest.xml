@@ -58,7 +58,15 @@
         <activity
             android:name=".activity.BookDetailsActivity"
             android:label="@string/activity_book_details"
-            android:theme="@android:style/Theme.Light.NoTitleBar" />
+            android:theme="@android:style/Theme.Light.NoTitleBar">
+
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="vnd.android.cursor.item/vnd.org.curiouscreature.provider.shelves" />
+            </intent-filter>
+
+        </activity>
 
         <activity
             android:name=".activity.SettingsActivity"
