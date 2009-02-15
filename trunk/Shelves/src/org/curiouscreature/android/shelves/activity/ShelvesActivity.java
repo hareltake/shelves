@@ -561,6 +561,8 @@ public class ShelvesActivity extends Activity {
             if (mAddPanel == null) {
                 mAddPanel = ((ViewStub) findViewById(R.id.stub_add)).inflate();
                 ((ProgressBar) mAddPanel.findViewById(R.id.progress)).setIndeterminate(true);
+                ((TextView) mAddPanel.findViewById(R.id.label_import)).setText(
+                        getText(R.string.add_label));
 
                 final View cancelButton = mAddPanel.findViewById(R.id.button_cancel);
                 cancelButton.setOnClickListener(new View.OnClickListener() {
