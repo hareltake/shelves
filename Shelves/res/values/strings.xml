@@ -49,6 +49,7 @@
     <string name="context_menu_item_buy_label">Buy</string>
     <string name="context_menu_item_delete_label">Delete</string>
 
+    <string name="add_label">Adding...</string>
     <string name="import_label">Importing...</string>
     <string name="cancel_label">Cancel</string>
     <string name="search_label">Books</string>

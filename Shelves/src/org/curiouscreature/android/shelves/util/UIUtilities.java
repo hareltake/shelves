@@ -54,7 +54,7 @@ public class UIUtilities {
 
         final View view = LayoutInflater.from(context).inflate(R.layout.book_notification, null);
         ((TextView) view.findViewById(R.id.message)).setText(
-                String.format(context.getString(id), args));
+                String.format(context.getText(id).toString(), args));
         ((ImageView) view.findViewById(R.id.cover)).setImageDrawable(drawable);
 
         Toast toast = new Toast(context);
@@ -65,7 +65,7 @@ public class UIUtilities {
     }
 
     public static void showFormattedToast(Context context, int id, Object... args) {
-        Toast.makeText(context, String.format(context.getString(id), args),
+        Toast.makeText(context, String.format(context.getText(id).toString(), args),
                 Toast.LENGTH_LONG).show();
     }
 }
