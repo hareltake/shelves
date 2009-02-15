@@ -150,6 +150,9 @@ public class ShelvesActivity extends Activity {
         final String action = intent.getAction();
         if (Intent.ACTION_SEARCH.equals(action)) {
             onSearch(intent);
+        } else if (Intent.ACTION_VIEW.equals(action)) {
+            final Intent viewIntent = new Intent(Intent.ACTION_VIEW, intent.getData());
+            startActivity(viewIntent);
         } else if (ACTION_IMPORT.equals(action)) {
             onImport();
         }

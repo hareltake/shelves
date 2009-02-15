@@ -56,9 +56,14 @@ public class BookDetailsActivity extends Activity {
     private BooksStore.Book getBook() {
         final Intent intent = getIntent();
         if (intent != null) {
-            final String bookId = intent.getStringExtra(EXTRA_BOOK);
-            if (bookId != null) {
-                return BooksManager.findBook(getContentResolver(), bookId);
+            final String action = intent.getAction();
+            if (Intent.ACTION_VIEW.equals(action)) {
+                return BooksManager.findBook(getContentResolver(), intent.getData());
+            } else {
+                final String bookId = intent.getStringExtra(EXTRA_BOOK);
+                if (bookId != null) {
+                    return BooksManager.findBook(getContentResolver(), bookId);
+                }
             }
         }
         return null;

@@ -86,8 +86,9 @@ public abstract class BooksStore {
 
         @Override
         public String toString() {
-            return "<p class=\".content\">" + mContent + "</p>\n<p class=\".source\">" +
-                    mSource + "</p>";
+            // TODO: We should be storing reviews in a separate table
+            return "<p class=\".source\">" + mSource +
+                    "</p>\n<p class=\".content\">" + mContent + "</p>";
         }
     }
 
@@ -224,7 +225,7 @@ public abstract class BooksStore {
             values.put(TITLE, mTitle);
             values.put(AUTHORS, TextUtilities.join(mAuthors, ", "));
             values.put(PUBLISHER, mPublisher);
-            values.put(REVIEWS,  TextUtilities.join(mDescriptions, "\n"));
+            values.put(REVIEWS,  TextUtilities.join(mDescriptions, "\n\n"));
             values.put(PAGES, mPages);
             if (mLastModified != null) {
                 values.put(LAST_MODIFIED, mLastModified.getTimeInMillis());

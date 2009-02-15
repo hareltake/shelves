@@ -143,4 +143,22 @@ public class BooksManager {
 
         return book;
     }
+
+    public static BooksStore.Book findBook(ContentResolver contentResolver, Uri data) {
+        BooksStore.Book book = null;
+        Cursor c = null;
+
+        try {
+            c = contentResolver.query(data, null, null, null, null);
+            if (c.getCount() > 0) {
+                if (c.moveToFirst()) {
+                    book = BooksStore.Book.fromCursor(c);
+                }
+            }
+        } finally {
+            if (c != null) c.close();
+        }
+
+        return book;
+    }
 }
