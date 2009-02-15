@@ -37,7 +37,8 @@ public final class ScanIntent {
     public static boolean isInstalled(Context context) {
         final PackageManager packageManager = context.getPackageManager();
         final Intent intent = new Intent(INTENT_ACTION_SCAN);
-        List<ResolveInfo> list = packageManager.queryIntentActivities(intent, PackageManager.MATCH_DEFAULT_ONLY);
+        List<ResolveInfo> list = packageManager.queryIntentActivities(intent,
+                PackageManager.MATCH_DEFAULT_ONLY);
         return list.size() > 0;
     }
 }
