@@ -20,7 +20,7 @@
 	android:versionName="1.0"
 	android:versionCode="1">
 
-	<uses-sdk minSdkVersion="2" />
+	<uses-sdk android:minSdkVersion="2" />
 
     <uses-permission android:name="android.permission.INTERNET" />
 
