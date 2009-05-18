@@ -135,7 +135,10 @@ public class ShelvesActivity extends Activity {
         final String queryAction = queryIntent.getAction();
         if (Intent.ACTION_SEARCH.equals(queryAction)) {
             onSearch(queryIntent);
-        }
+        } else if (Intent.ACTION_VIEW.equals(queryAction)) {
+            final Intent viewIntent = new Intent(Intent.ACTION_VIEW, queryIntent.getData());
+	        startActivity(viewIntent);
+	    }
     }
 
     private void onSearch(Intent intent) {
