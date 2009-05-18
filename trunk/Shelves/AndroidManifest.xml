@@ -20,7 +20,7 @@
 	android:versionName="1.0"
 	android:versionCode="1">
 
-	<uses-sdk android:minSdkVersion="2" />
+	<uses-sdk android:minSdkVersion="3" />
 
     <uses-permission android:name="android.permission.INTERNET" />
 
@@ -31,7 +31,7 @@
         <activity
             android:name=".activity.ShelvesActivity"
             android:label="@string/application_name"
-            android:launchMode="singleTop"
+            android:launchMode="singleTask"
             android:theme="@style/Theme.Shelves">
 
             <intent-filter>
