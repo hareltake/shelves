@@ -3,15 +3,10 @@
   <component name="AntConfiguration">
     <defaultAnt bundledAnt="true" />
     <buildFile url="file://$PROJECT_DIR$/build.xml">
-      <additionalClassPath>
-        <entry path="file:///Volumes/Android/android-sdk-mac_x86-1.5_r1/tools/lib/anttasks.jar" />
-        <entry path="file:///Volumes/Android/android-sdk-mac_x86-1.5_r1/tools/lib/apkbuilder.jar" />
-        <entry path="file:///Volumes/Android/android-sdk-mac_x86-1.5_r1/tools/lib/sdklib.jar" />
-      </additionalClassPath>
+      <additionalClassPath />
       <antReference projectDefault="true" />
       <customJdkName value="" />
       <maximumHeapSize value="128" />
-      <maximumStackSize value="32" />
       <properties />
     </buildFile>
   </component>
@@ -47,6 +42,15 @@
           <option name="LABEL_INDENT_ABSOLUTE" value="false" />
         </ADDITIONAL_INDENT_OPTIONS>
         <ADDITIONAL_INDENT_OPTIONS fileType="java">
+          <option name="INDENT_SIZE" value="4" />
+          <option name="CONTINUATION_INDENT_SIZE" value="8" />
+          <option name="TAB_SIZE" value="4" />
+          <option name="USE_TAB_CHARACTER" value="false" />
+          <option name="SMART_TABS" value="false" />
+          <option name="LABEL_INDENT_SIZE" value="0" />
+          <option name="LABEL_INDENT_ABSOLUTE" value="false" />
+        </ADDITIONAL_INDENT_OPTIONS>
+        <ADDITIONAL_INDENT_OPTIONS fileType="js">
           <option name="INDENT_SIZE" value="4" />
           <option name="CONTINUATION_INDENT_SIZE" value="8" />
           <option name="TAB_SIZE" value="4" />
@@ -96,9 +100,6 @@
       <entry name="?*.tld" />
     </wildcardResourcePatterns>
   </component>
-  <component name="CopyrightManager" default="">
-    <module2copyright />
-  </component>
   <component name="DependenciesAnalyzeManager">
     <option name="myForwardDirection" value="false" />
   </component>
@@ -138,7 +139,9 @@
         <option name="myName" value="Project Default" />
         <option name="myLocal" value="false" />
         <inspection_tool class="ClassReferencesSubclass" level="WARNING" enabled="true" />
-        <inspection_tool class="MissingOverrideAnnotation" level="WARNING" enabled="true" />
+        <inspection_tool class="MissingOverrideAnnotation" level="WARNING" enabled="true">
+          <option name="useJdk6Rules" value="false" />
+        </inspection_tool>
         <inspection_tool class="Finalize" level="WARNING" enabled="true" />
         <inspection_tool class="UnusedImport" level="WARNING" enabled="true" />
         <inspection_tool class="StaticInheritance" level="WARNING" enabled="true" />
@@ -417,13 +420,13 @@
   <component name="libraryTable">
     <library name="android">
       <CLASSES>
-        <root url="jar:///Volumes/Android/android-sdk-mac_x86-1.5_r1/platforms/android-1.5/android.jar!/" />
+        <root url="jar:///Volumes/Android/android-sdk-mac_x86-1.1_r1/android.jar!/" />
       </CLASSES>
       <JAVADOC>
-        <root url="file:///Volumes/Android/android-sdk-mac_x86-1.5_r1/docs/reference" />
+        <root url="file:///Volumes/Android/android-sdk-mac_x86-1.0_r1/docs/reference" />
       </JAVADOC>
       <SOURCES>
-        <root url="file:///Volumes/Android/romainguy-gitdroid/donut/frameworks/base/core/java" />
+        <root url="file:///Volumes/Android/android-open-1.0/frameworks/base/core/java" />
       </SOURCES>
     </library>
   </component>

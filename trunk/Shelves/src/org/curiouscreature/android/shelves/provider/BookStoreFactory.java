@@ -104,7 +104,7 @@ public final class BookStoreFactory {
             parser.close();
         }
 
-        if (stores.size() > 1) {
+        if (stores.size() >= 1) {
             final CompoundBooksStore store = new CompoundBooksStore(context, stores);
             stores.put(store.getName(), store);
         }
