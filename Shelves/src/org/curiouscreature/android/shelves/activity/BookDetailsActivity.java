@@ -29,10 +29,10 @@ import android.view.View;
 import android.text.TextUtils;
 import org.curiouscreature.android.shelves.provider.BooksStore;
 import org.curiouscreature.android.shelves.provider.BooksManager;
-import org.curiouscreature.android.shelves.R;
 import org.curiouscreature.android.shelves.drawable.FastBitmapDrawable;
 import org.curiouscreature.android.shelves.util.ImageUtilities;
 import org.curiouscreature.android.shelves.util.TextUtilities;
+import org.curiouscreature.android.shelves.R;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;

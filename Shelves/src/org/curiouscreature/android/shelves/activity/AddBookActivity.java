@@ -40,7 +40,6 @@ import android.text.Editable;
 import android.text.TextUtils;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import org.curiouscreature.android.shelves.R;
 import org.curiouscreature.android.shelves.drawable.FastBitmapDrawable;
 import org.curiouscreature.android.shelves.provider.BooksStore;
 import org.curiouscreature.android.shelves.provider.BookStoreFactory;
@@ -49,6 +48,7 @@ import org.curiouscreature.android.shelves.util.UserTask;
 import org.curiouscreature.android.shelves.util.UIUtilities;
 import org.curiouscreature.android.shelves.util.TextUtilities;
 import org.curiouscreature.android.shelves.util.ImageUtilities;
+import org.curiouscreature.android.shelves.R;
 
 import java.util.ArrayList;
 

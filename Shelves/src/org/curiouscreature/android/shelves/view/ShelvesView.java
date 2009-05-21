@@ -27,9 +27,9 @@ import android.graphics.Canvas;
 import android.graphics.drawable.StateListDrawable;
 import android.graphics.drawable.Drawable;
 import android.view.ViewConfiguration;
-import org.curiouscreature.android.shelves.R;
 import org.curiouscreature.android.shelves.drawable.SpotlightDrawable;
 import org.curiouscreature.android.shelves.drawable.TransitionDrawable;
+import org.curiouscreature.android.shelves.R;
 
 public class ShelvesView extends GridView {
     private Bitmap mShelfBackground;
