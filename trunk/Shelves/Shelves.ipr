@@ -413,13 +413,13 @@
   <component name="libraryTable">
     <library name="android">
       <CLASSES>
-        <root url="jar:///Volumes/Android/android-sdk-mac_x86-1.1_r1/android.jar!/" />
+        <root url="jar:///Volumes/Android/android-sdk-mac_x86-1.5_r1/platforms/android-1.5/android.jar!/" />
       </CLASSES>
       <JAVADOC>
-        <root url="file:///Volumes/Android/android-sdk-mac_x86-1.0_r1/docs/reference" />
+        <root url="file:///Volumes/Android/android-sdk-mac_x86-1.5_r1/docs/reference" />
       </JAVADOC>
       <SOURCES>
-        <root url="file:///Volumes/Android/android-open-1.0/frameworks/base/core/java" />
+        <root url="file:///Volumes/Android/romainguy-gitdroid/donut/frameworks/base/core/java" />
       </SOURCES>
     </library>
   </component>
