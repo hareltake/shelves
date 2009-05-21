@@ -29,10 +29,10 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import org.curiouscreature.android.shelves.provider.BooksStore;
-import org.curiouscreature.android.shelves.R;
 import org.curiouscreature.android.shelves.util.ImageUtilities;
 import org.curiouscreature.android.shelves.drawable.CrossFadeDrawable;
 import org.curiouscreature.android.shelves.drawable.FastBitmapDrawable;
+import org.curiouscreature.android.shelves.R;
 
 class BooksAdapter extends CursorAdapter implements FilterQueryProvider {
     private static final String[] PROJECTION_IDS_AND_TITLE = new String[] {

@@ -22,10 +22,10 @@ import android.preference.ListPreference;
 import android.content.Intent;
 import android.content.Context;
 import android.os.Bundle;
-import org.curiouscreature.android.shelves.R;
 import org.curiouscreature.android.shelves.provider.BookStoreFactory;
 import org.curiouscreature.android.shelves.provider.BooksStore;
 import org.curiouscreature.android.shelves.util.Preferences;
+import org.curiouscreature.android.shelves.R;
 
 public class SettingsActivity extends PreferenceActivity implements
         Preference.OnPreferenceChangeListener {
